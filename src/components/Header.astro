@@ -1,0 +1,107 @@
+---
+import MenuIcon from "@/components/icons/MenuIcon.astro";
+import CloseIcon from "./icons/CloseIcon.astro";
+---
+
+<header class="py-4 backdrop-blur-lg">
+  <nav
+    class="nav grid grid-cols-[repeat(2,max-content)] items-center justify-between mx-auto w-[90%]"
+  >
+    <a href="/" class="z-10">israelCastro.dev</a>
+    <input type="checkbox" name="menu" id="menu" class="menu-input hidden" />
+    <ul class="nav__links bg-black text-lg">
+      <li>
+        <a href="#Hero">Hero</a>
+      </li>
+      <li>
+        <a href="#Proyectos">Proyectos</a>
+      </li>
+      <li>
+        <a href="#SobreMi">Sobre mi</a>
+      </li>
+    </ul>
+
+    <label for="menu" class="nav__menu">
+      <MenuIcon className="cursor-pointer" />
+    </label>
+    <label for="menu" class="nav__close">
+      <CloseIcon className="cursor-pointer" />
+    </label>
+  </nav>
+</header>
+
+<style>
+  .nav {
+    --state-menu: scale(1);
+    --state-close: scale(0);
+    --state-menu-open: translate(-100%);
+  }
+  .menu-input:checked ~ .nav__menu {
+    --state-menu: scale(0);
+  }
+
+  .menu-input:checked ~ .nav__close {
+    --state-close: scale(1);
+  }
+
+  .menu-input:checked ~ .nav__links {
+    --state-menu-open: translate(0);
+  }
+
+  .nav__menu {
+    transform: var(--state-menu);
+  }
+  .nav__close {
+    transform: var(--state-close);
+  }
+
+  .nav__menu,
+  .nav__close {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .nav__links {
+    transform: var(--state-menu-open);
+    transition: transform 0.3s;
+
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    gap: 4rem;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 100vh;
+  }
+
+  label {
+    grid-column: -2/-1;
+    grid-row: 1/2;
+  }
+
+  @media (width >= 768px) {
+    .nav {
+      --state-menu: scale(0);
+      --state-menu-open: translate(0);
+    }
+
+    .menu-input:checked ~ .nav__close {
+      --state-close: scale(0);
+    }
+
+    .nav__links {
+      transform: unset;
+      background-color: unset;
+
+      position: unset;
+      height: unset;
+
+      grid-auto-flow: column;
+      grid-column: -2/-1;
+      grid-row: 1/2;
+    }
+  }
+</style>
