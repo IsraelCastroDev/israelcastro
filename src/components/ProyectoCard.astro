@@ -1,0 +1,52 @@
+---
+import type { Proyecto } from "@/Types";
+import Typography from "./Typography.astro";
+
+interface Props {
+  proyecto: Proyecto;
+}
+
+const { proyecto } = Astro.props;
+---
+
+<article class="bg-gray-800 p-3 rounded-xl">
+  <img
+    src={proyecto.img}
+    alt={`Imagen del proyecto ${proyecto.name}`}
+    title={`Imagen del proyecto ${proyecto.name}`}
+    class="w-full block rounded-xl"
+    loading="lazy"
+    decoding="async"
+  />
+
+  <div>
+    <Typography as="h3" variant="small" color="secondary" class:list={"mt-2"}>
+      {proyecto.name}
+    </Typography>
+
+    <Typography as="p" variant="text" color="secondary">
+      {proyecto.description}
+    </Typography>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <div class="flex items-center gap-2 bg-gray-700 p-2 rounded-xl">
+      {
+        proyecto.technologies?.map((tech) => (
+          <img
+            src={`/icons/${tech}.svg`}
+            alt={`Icono de la tecnología ${tech}`}
+            class="w-5 h-5 block"
+          />
+        ))
+      }
+    </div>
+
+    <div class="flex gap-2 items-center justify-center">
+      <img src="/icons/link.svg" alt="Ir al proyecto" title="Ir al proyecto" />
+      <Typography as="a" variant={"text"} color="secondary" href={proyecto.url} class:list={"mb-0 hover:underline"}
+        >Ir al proyecto</Typography
+      >
+    </div>
+  </div>
+</article>
