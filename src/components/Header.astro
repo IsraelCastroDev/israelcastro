@@ -1,23 +1,48 @@
 ---
 import MenuIcon from "@/components/icons/MenuIcon.astro";
 import CloseIcon from "./icons/CloseIcon.astro";
+import Typography from "./Typography.astro";
+import Button from "./Button.astro";
+
+import { menu } from "@/data/menu";
 ---
 
-<header class="py-4 backdrop-blur-lg">
+<header
+  class="py-4 md:py-2 backdrop-blur-sm bg-gray-900/50 z-50 border-2 border-transparent border-b-gray-500
+  sticky top-0"
+>
   <nav
-    class="nav grid grid-cols-[repeat(2,max-content)] items-center justify-between mx-auto w-[90%]"
+    class="nav grid grid-cols-[repeat(2,max-content)] items-center justify-between mx-auto w-[90%] md:w-[90%]
+    xl:w-[72%] md:mx-auto"
   >
-    <a href="/" class="z-10">israelCastro.dev</a>
+    <Typography
+      href="/"
+      as="a"
+      variant="small"
+      color="secondary"
+      class:list={["z-10"]}>israelCastro.dev</Typography
+    >
     <input type="checkbox" name="menu" id="menu" class="menu-input hidden" />
     <ul class="nav__links bg-black text-lg">
+      {
+        menu.map((item) => (
+          <label for="menu">
+            <li>
+              <Typography
+                as="a"
+                variant="small"
+                color="secondary"
+                href={item.href}
+                class={item.className}
+              >
+                {item.name}
+              </Typography>
+            </li>
+          </label>
+        ))
+      }
       <li>
-        <a href="#Hero">Hero</a>
-      </li>
-      <li>
-        <a href="#Proyectos">Proyectos</a>
-      </li>
-      <li>
-        <a href="#SobreMi">Sobre mi</a>
+        <Button href="#Contacto" className="py-1 px-2"> Contáctame </Button>
       </li>
     </ul>
 
@@ -35,7 +60,9 @@ import CloseIcon from "./icons/CloseIcon.astro";
     --state-menu: scale(1);
     --state-close: scale(0);
     --state-menu-open: translate(-100%);
+    transition: transform 0.3s ease-in-out;
   }
+
   .menu-input:checked ~ .nav__menu {
     --state-menu: scale(0);
   }
@@ -44,42 +71,34 @@ import CloseIcon from "./icons/CloseIcon.astro";
     --state-close: scale(1);
   }
 
-  .menu-input:checked ~ .nav__links {
-    --state-menu-open: translate(0);
-  }
-
   .nav__menu {
     transform: var(--state-menu);
   }
+
   .nav__close {
     transform: var(--state-close);
   }
 
   .nav__menu,
   .nav__close {
+    grid-row: 1/2;
+    grid-column: 2/3;
     transition: transform 0.3s ease-in-out;
   }
 
   .nav__links {
     transform: var(--state-menu-open);
     transition: transform 0.3s;
-
     display: grid;
     align-content: center;
-    justify-content: center;
-    gap: 4rem;
-
+    padding-left: calc(1rem + 2vw);
+    gap: 2rem;
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     height: 100vh;
-  }
-
-  label {
-    grid-column: -2/-1;
-    grid-row: 1/2;
   }
 
   @media (width >= 768px) {
@@ -93,15 +112,45 @@ import CloseIcon from "./icons/CloseIcon.astro";
     }
 
     .nav__links {
+      padding: 0;
       transform: unset;
       background-color: unset;
-
       position: unset;
       height: unset;
-
       grid-auto-flow: column;
       grid-column: -2/-1;
       grid-row: 1/2;
+      gap: 1rem;
     }
   }
 </style>
+
+<script>
+  // Selecciona el input del menú y el contenedor del menú
+  const menuInput = document.querySelector(".menu-input") as HTMLInputElement;
+  const navMenu = document.querySelector(".nav__links") as HTMLElement;
+
+  // Agrega un evento de clic al input del menú
+  menuInput.addEventListener("click", () => {
+    if (menuInput.checked) {
+      // Abre el menú estableciendo el estado del menú abierto en 0
+      navMenu.style.setProperty("--state-menu-open", "translate(0)");
+    } else {
+      // Cierra el menú estableciendo el estado del menú abierto en -100%
+      navMenu.style.setProperty("--state-menu-open", "translate(-100%)");
+    }
+  });
+
+  // Selecciona todos los elementos de enlace dentro del menú
+  const navLinks = document.querySelectorAll(".nav__links a");
+
+  // Itera sobre cada elemento de enlace y agrega un evento de clic
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      // Cierra el menú estableciendo el estado del menú abierto en -100%
+      navMenu.style.setProperty("--state-menu-open", "translate(-100%)");
+      // Desmarca el checkbox del menú para cerrarlo
+      menuInput.checked = false;
+    });
+  });
+</script>
