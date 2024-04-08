@@ -4,7 +4,7 @@ import type { HTMLTag, Polymorphic } from "astro/types";
 type Props<Tag extends HTMLTag> = Polymorphic<{
   as: Tag;
   variant: keyof typeof variantClasses;
-  color: keyof typeof colorClasses;
+  color?: keyof typeof colorClasses;
 }>;
 
 const { as: Tag, class: className, variant, color, ...props } = Astro.props;
