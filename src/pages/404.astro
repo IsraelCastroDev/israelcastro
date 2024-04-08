@@ -1,18 +1,34 @@
 ---
 import Typography from "@/components/Typography.astro";
 import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
 ---
 
 <Layout title="404 | Página no enontrada">
-  <Header />
-  <section class="flex flex-col justify-center items-center h-screen gap-y-10">
+  <section
+    class="px-2 flex flex-col justify-center items-center h-[calc(100vh-80px)] gap-y-10"
+  >
     <div class="text-center">
-      <h2 class="text-4xl">Error 404</h2>
-      <h1 class="text-4xl">Página no encontrada</h1>
+      <Typography as="h1" variant="big" class:list="text-red-500 font-black"
+        >Error 404</Typography
+      >
+      <Typography as="h2" variant="mediun" color="secondary" class="mt-2 font-black"
+        >Página no encontrada</Typography
+      >
+      <Typography
+        as="p"
+        variant="small"
+        color="secondary"
+        class="mt-2 text-center"
+        >La pagina que estas buscando no existe, verifica bien la URL.</Typography
+      >
     </div>
 
-    <Typography as="a" variant="small" color="secondary" href="/"
+    <Typography
+      as="a"
+      variant="small"
+      color="secondary"
+      href="/"
+      class:list={["text-center"]}
       >👉 Haz click aqui para volver a la página principal 👈</Typography
     >
   </section>
