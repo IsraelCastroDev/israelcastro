@@ -1,0 +1,17 @@
+---
+import Typography from "@/components/Typography.astro";
+import Layout from "@/layouts/Layout.astro";
+---
+
+<Layout title="404 | Página no enontrada">
+  <section class="flex flex-col justify-center items-center h-screen gap-y-10">
+    <div class="text-center">
+      <h2 class="text-4xl">Error 404</h2>
+      <h1 class="text-4xl">Página no encontrada</h1>
+    </div>
+
+    <Typography as="a" variant="small" color="secondary" href="/"
+      >👉 Haz click aqui para volver a la página principal 👈</Typography
+    >
+  </section>
+</Layout>
