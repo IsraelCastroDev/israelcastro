@@ -1,0 +1,35 @@
+---
+import Typography from "./Typography.astro";
+import { habilidades } from "@/data/habilidades";
+---
+
+<section id="Habilidades" class="scroll-mt-24 my-24">
+  <Typography
+    as="h2"
+    variant="title"
+    color="primary"
+    class:list={"text-center mb-7"}
+  >
+    Habilidades
+  </Typography>
+
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-4">
+    {
+      habilidades.map((habilidad) => (
+        <div class="flex flex-col items-center justify-center gap-y-2">
+          <img
+            src={habilidad.img}
+            alt={`Icono de la teconología ${habilidad.name}`}
+            loading="lazy"
+            decoding="async"
+            class="w-10 h-10"
+          />
+
+          <Typography as="h3" variant="small" color="secondary">
+            {habilidad.name}
+          </Typography>
+        </div>
+      ))
+    }
+  </div>
+</section>
