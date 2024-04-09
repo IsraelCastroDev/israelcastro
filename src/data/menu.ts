@@ -12,9 +12,9 @@ export const menu: MenuItems[] = [
     className: "proyectos",
   },
   {
-    name: "Habilidades",
-    href: "#Habilidades",
-    className: "habilidades",
+    name: "Tecnologias",
+    href: "#Tecnologias",
+    className: "tecnologias",
   },
   {
     name: "Sobre mi",
