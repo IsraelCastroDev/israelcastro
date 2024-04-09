@@ -4,21 +4,17 @@ import Typography from "./Typography.astro";
 import { proyectos } from "@/data/proyectos";
 ---
 
-<section id="Proyectos" class="scroll-mt-24 h-screen mt-60">
+<section id="Proyectos" class="scroll-mt-24 mt-10 h-auto">
   <Typography
     as="h2"
     variant="title"
     color="primary"
-    class:list={"text-center"}
+    class:list={"text-center mb-7"}
   >
     Proyectos
   </Typography>
 
   <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
-    {
-      proyectos.map((proyecto) => (
-        <ProyectoCard proyecto={proyecto} />
-      ))
-    }
+    {proyectos.map((proyecto) => <ProyectoCard proyecto={proyecto} />)}
   </div>
 </section>
