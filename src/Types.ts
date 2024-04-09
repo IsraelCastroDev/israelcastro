@@ -11,3 +11,8 @@ export type Proyecto = {
   url: string;
   technologies?: string[];
 };
+
+export type Habilidades = {
+  name: string;
+  img: string;
+};
