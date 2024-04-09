@@ -21,9 +21,4 @@ export const menu: MenuItems[] = [
     href: "#SobreMi",
     className: "sobre-mi",
   },
-  {
-    name: "Contacto",
-    href: "#Contacto",
-    className: "contacto",
-  },
 ];
