@@ -9,7 +9,7 @@ interface Props {
 const { proyecto } = Astro.props;
 ---
 
-<article class="bg-gray-800 p-3 rounded-xl">
+<article class="bg-gray-800 p-3 rounded-xl flex flex-col gap-y-2">
   <img
     src={proyecto.img}
     alt={`Imagen del proyecto ${proyecto.name}`}
