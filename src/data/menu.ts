@@ -10,7 +10,7 @@ export const menu: MenuItems[] = [
     href: "#Proyectos",
   },
   {
-    name: "Tecnologias",
+    name: "Tecnologías",
     href: "#Tecnologias",
   },
   {
