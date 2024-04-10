@@ -37,15 +37,28 @@ const { proyecto } = Astro.props;
             src={`/icons/${tech}.svg`}
             alt={`Icono de la tecnología ${tech}`}
             class="w-5 h-5 block"
+            loading="lazy"
+            decoding="async"
           />
         ))
       }
     </div>
 
     <div class="flex gap-2 items-center justify-center">
-      <img src="/icons/link.svg" alt="Ir al proyecto" title="Ir al proyecto" />
-      <Typography as="a" variant={"text"} color="secondary" href={proyecto.url} class:list={"mb-0 hover:underline"}
-        >Ir al proyecto</Typography
+      <img
+        src="/icons/link.svg"
+        alt="Ir al proyecto"
+        title="Ir al proyecto"
+        class="block"
+        loading="lazy"
+        decoding="async"
+      />
+      <Typography
+        as="a"
+        variant={"text"}
+        color="secondary"
+        href={proyecto.url}
+        class:list={"mb-0 hover:underline"}>Ir al proyecto</Typography
       >
     </div>
   </div>
