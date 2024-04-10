@@ -1,5 +1,4 @@
 ---
-import Button from "./Button.astro";
 import Typography from "./Typography.astro";
 ---
 
@@ -20,21 +19,42 @@ import Typography from "./Typography.astro";
       as="h2"
       variant="mediun"
       color="gradient"
-      class:list={["hero__subtitle"]}
+      class:list={["hero__subtitle text-wrap"]}
     >
       Desarrollador Frontend Jr.</Typography
     >
   </div>
-  <Button href="#Proyectos" className="py-3 px-2 hero__button">Conoce más de mi</Button>
+  <div class="flex gap-x-2 md:gap-x-4 items-center justify-center hero__button">
+    <a href="www.linkedin.com/in/juan-castro-chozo/" target="_blank">
+      <img
+        src="/icons/Linkedin.svg"
+        alt="Linkedin de Israel Castro"
+        title="Linkedin de Israel Castro"
+        class="w-8 md:w-10"
+      />
+    </a>
+    <a href="https://github.com/IsraelCastroDev" target="_blank">
+      <img
+        src="/icons/Github.svg"
+        alt="Github de Israel Castro"
+        class="w-8 md:w-10"
+        title="Github de Israel Castro"
+      />
+    </a>
+  </div>
 </section>
 
 <style>
   .hero__title {
-    animation: fadeintop .8s ease-in-out;
+    animation: fadeintop 0.8s ease-in-out;
   }
 
   .hero__subtitle {
     animation: fadeintop 1.3s ease-in-out;
+  }
+
+  .hero__button {
+    animation: fadeintop 1.8s ease-in-out;
   }
 
   @keyframes fadeintop {
@@ -44,7 +64,7 @@ import Typography from "./Typography.astro";
     }
     50% {
       opacity: 0;
-      transform: translateY(-20%); 
+      transform: translateY(-20%);
     }
     100% {
       opacity: 1;
