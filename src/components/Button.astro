@@ -14,7 +14,9 @@ const { href, className } = Astro.props;
   as="a"
   variant="small"
   color="secondary"
-  class:list={[`bg-blue-900 rounded-full font-black ${className}`]}
+  class:list={[
+    `bg-blue-900 hover:bg-blue-800 transition-colors duration-500 ease-in-out rounded-full font-black ${className}`,
+  ]}
 >
   <slot />
 </Typography>
