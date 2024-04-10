@@ -1,7 +1,6 @@
 export type MenuItems = {
   name: string;
   href: string;
-  className: string;
 };
 
 export type Proyecto = {
