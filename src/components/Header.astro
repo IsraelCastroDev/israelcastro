@@ -18,29 +18,26 @@ import { menu } from "@/data/menu";
       as="a"
       variant="small"
       color="gradient"
-      class:list={[
-        "z-10 mb-0 hover:bg-gradient-to-l",
-      ]}>israelCastro.dev</Typography
+      class:list={["z-10 mb-0 hover:bg-gradient-to-l"]}
+      >israelCastro.dev</Typography
     >
     <input type="checkbox" name="menu" id="menu" class="menu-input hidden" />
     <ul class="nav__links bg-black text-lg">
       {
         menu.map((item) => (
-          <label for="menu">
-            <li>
-              <Typography
-                as="a"
-                variant="small"
-                color="secondary"
-                href={item.href}
-                class:list={[
-                  "hover:text-blue-400 transition-colors duration-500 ease-in-out after:[content:''] after:block after:w-[90%] after:bg-blue-500 after:h-[1px] nav__item",
-                ]}
-              >
-                {item.name}
-              </Typography>
-            </li>
-          </label>
+          <li>
+            <Typography
+              as="a"
+              variant="small"
+              color="secondary"
+              href={item.href}
+              class:list={[
+                "hover:text-blue-400 transition-colors duration-500 ease-in-out after:[content:''] after:block after:w-[90%] after:bg-blue-500 after:h-[1px] nav__item",
+              ]}
+            >
+              {item.name}
+            </Typography>
+          </li>
         ))
       }
       <li>
