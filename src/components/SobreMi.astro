@@ -1,0 +1,90 @@
+---
+import Typography from "./Typography.astro";
+---
+
+<section id="SobreMi" class="scroll-mt-24 my-24 md:my-20">
+  <Typography
+    as="h2"
+    variant="title"
+    color="primary"
+    class:list={["text-center mb-7"]}>Sobre mi</Typography
+  >
+
+  <div class="text-pretty flex flex-col md:flex-row gap-5 md:gap-6 mt-4">
+    <div class="w-full md:w-1/2">
+      <Typography as="p" variant="text" color="secondary">
+        Hola 😁, mi nombre completo es <Typography
+          as="span"
+          variant="text"
+          color="primary"
+          class:list={["font-black"]}>Juan Israel Castro Chozo</Typography
+        >. Soy natural de Perú y soy un Desarrollador Frontend Junior en busca
+        de nuevos retos para fortalecer el comienzo de mi carrera profesional.
+        Desde muy pequeño me llamó la atención las webs, me preguntaba cómo se
+        hacían, cómo funcionaban, cómo se construían. Por lo que decidí crear mi
+        camino en el mundo de la programación
+      </Typography>
+      <Typography as="p" variant="text" color="secondary" class:list={["mt-4"]}>
+        Actualmente me encuentro estudiando la carrera de <Typography
+          as="span"
+          variant="text"
+          color="primary"
+          class:list={["font-black"]}
+          >Gestión de Sistemas de Información o Computación e Informática</Typography
+        >, cursando el 4to ciclo, he adquirido conocimientos y bases sólidas de
+        programación, viendo lenguajes como JavaScript y Python, también
+        Frameworks como React y Next.js a nivel básico.
+      </Typography>
+    </div>
+
+    <div class="flex-1">
+      <img
+        src="https://mentorday.es/wikitips/wp-content/uploads/2023/04/Diseno-sin-titulo-10-3-1170x570.png"
+        alt="Israel Castro Desarrollador Frontend"
+        class="w-full rounded-xl hidden md:block"
+        loading="lazy"
+        decoding="async"
+      />
+    </div>
+  </div>
+
+  <div class="flex justify-center mt-3 md:mt-12">
+    <a href="#Contacto" class="contacto__icono">
+      <img
+        src="/icons/abajo.svg"
+        alt="Icono de abajo"
+        class="w-10"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+  </div>
+</section>
+
+<style>
+  .contacto__icono {
+    animation: moveInifinite 1s ease-in-out infinite;
+  }
+
+  @keyframes moveInifinite {
+    0% {
+      transform: translateY(0);
+    }
+
+    25% {
+      transform: translateY(-5px);
+    }
+
+    50% {
+      transform: translateY(5px);
+    }
+
+    75% {
+      transform: translateY(-5px);
+    }
+
+    100% {
+      transform: translateY(0);
+    }
+  }
+</style>
