@@ -14,7 +14,13 @@ const { href, className } = Astro.props;
   as="a"
   variant="small"
   color="secondary"
-  class={`bg-blue-900 rounded-full font-black ${className}`}
+  class:list={[`bg-blue-900 rounded-full font-black ${className}`]}
 >
   <slot />
 </Typography>
+
+<style>
+  .hero__button {
+    animation: fadeintop 1.8s ease-in-out;
+  }
+</style>
