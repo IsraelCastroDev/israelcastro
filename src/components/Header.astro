@@ -113,6 +113,10 @@ import { menu } from "@/data/menu";
     height: 100vh;
   }
 
+  .nav__links a.active {
+    color: rgb(96 165 250);
+  }
+
   @media (width >= 768px) {
     .nav {
       --state-menu: scale(0);
@@ -138,31 +142,42 @@ import { menu } from "@/data/menu";
 </style>
 
 <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    toggleMenu();
+  });
+
   // Selecciona el input del menú y el contenedor del menú
   const menuInput = document.querySelector(".menu-input") as HTMLInputElement;
   const navMenu = document.querySelector(".nav__links") as HTMLElement;
-
-  // Agrega un evento de clic al input del menú
-  menuInput.addEventListener("click", () => {
-    if (menuInput.checked) {
-      // Abre el menú estableciendo el estado del menú abierto en 0
-      navMenu.style.setProperty("--state-menu-open", "translate(0)");
-    } else {
-      // Cierra el menú estableciendo el estado del menú abierto en -100%
-      navMenu.style.setProperty("--state-menu-open", "translate(-100%)");
-    }
-  });
-
   // Selecciona todos los elementos de enlace dentro del menú
   const navLinks = document.querySelectorAll(".nav__links a");
 
-  // Itera sobre cada elemento de enlace y agrega un evento de clic
-  navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      // Cierra el menú estableciendo el estado del menú abierto en -100%
-      navMenu.style.setProperty("--state-menu-open", "translate(-100%)");
-      // Desmarca el checkbox del menú para cerrarlo
-      menuInput.checked = false;
+  function toggleMenu() {
+    // Agrega un evento de clic al input del menú
+    menuInput.addEventListener("click", () => {
+      if (menuInput.checked) {
+        // Abre el menú estableciendo el estado del menú abierto en 0
+        navMenu.style.setProperty("--state-menu-open", "translate(0)");
+      } else {
+        // Cierra el menú estableciendo el estado del menú abierto en -100%
+        navMenu.style.setProperty("--state-menu-open", "translate(-100%)");
+      }
     });
-  });
+
+    // Itera sobre cada elemento de enlace y agrega un evento de clic
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        // Cierra el menú estableciendo el estado del menú abierto en -100%
+        navMenu.style.setProperty("--state-menu-open", "translate(-100%)");
+        // Desmarca el checkbox del menú para cerrarlo
+        menuInput.checked = false;
+
+        navLinks.forEach((navLink) => {
+          navLink.classList.remove("active");
+        });
+
+        link.classList.add("active");
+      });
+    });
+  }
 </script>
