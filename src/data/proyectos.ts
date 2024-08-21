@@ -2,6 +2,14 @@ import type { Proyecto } from "@/Types";
 
 export const proyectos: Proyecto[] = [
   {
+    name: "App Flashvideo",
+    description:
+      "App de películas, consume la API de TheMovieDB usando Tanstack Query React, TailwindCSS y TypeScript. Usé custom hooks para reutilizar los queries.",
+    img: "/images/bg-flashvideo.webp",
+    url: "https://flashvideo.vercel.app/",
+    technologies: ["React", "CSS", "TypeScript", "API", "ReactQuery"],
+  },
+  {
     name: "Librería virtual",
     description:
       "Hecha en React, usando TailwindCSS para los estilos, custom hooks para separar la lógica de los componentes y useReducer con Context API",
@@ -16,13 +24,5 @@ export const proyectos: Proyecto[] = [
     img: "/images/tienda-guitarras.webp",
     url: "https://magnificent-salmiakki-3ed837.netlify.app/",
     technologies: ["React", "CSS", "TypeScript"],
-  },
-  {
-    name: "Cotizador de Criptomonedas",
-    description:
-      "Proyecto hecho con React y TailwindCSS, consumiendo una API de criptomonedas en tiempo real para obtener la cotización actual de cada criptomoneda.",
-    img: "/images/cripto.webp",
-    url: "https://cripto-react-eight.vercel.app/",
-    technologies: ["React", "API", "TailwindCSS"],
   },
 ];
