@@ -1,0 +1,193 @@
+---
+import Typography from "../Typography.astro";
+---
+
+<section class="modal">
+  <div class="modal__container bg-slate-700">
+    <Typography as="h2" variant="mediun" color="primary" class="text-center"
+      >¡Te invito a ponerte en contacto conmigo!</Typography
+    >
+    <p
+      id="message-error"
+      class="border border-red-500 text-red-200 text-center hidden"
+    >
+    </p>
+    <form class="space-y-4" id="form-contact">
+      <div class="flex flex-col">
+        <label for="from_name">Nombre:</label>
+        <input
+          type="text"
+          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          placeholder="Por ej. Juan Perez"
+          name="from_name"
+          id="from_name"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="from_email">Tu Email:</label>
+        <input
+          type="text"
+          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          placeholder="Por ej. 0t9zj@example.com"
+          name="from_email"
+          id="from_email"
+        />
+      </div>
+      <div class="flex flex-col">
+        <label for="from_phone">Tu Teléfono:</label>
+        <input
+          type="tel"
+          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          placeholder="Por ej. +56912345678"
+          name="from_phone"
+          id="from_phone"
+        />
+        <legend class="text-sm mt-1 text-gray-300"
+          >Agrega tu código de país*</legend
+        >
+      </div>
+      <div class="flex flex-col">
+        <label for="message">Mensaje:</label>
+        <textarea
+          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          placeholder="Por ej. Hola, me interesa..."
+          name="message"
+          id="message"></textarea>
+      </div>
+
+      <div class="flex justify-center">
+        <input
+          type="submit"
+          value="Enviar"
+          class="bg-slate-900 form__input text-white py-1 w-full cursor-pointer"
+        />
+      </div>
+    </form>
+    <button
+      class="absolute top-2 right-2 bg-slate-900 form__input text-white w-10 h-10 rounded-full"
+      id="closeModalBtn">X</button
+    >
+  </div>
+</section>
+
+<style>
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s 0.9s;
+    --transform: translateY(-100vh);
+    --transition: transform 0.8s;
+  }
+
+  .modal--show {
+    --transform: translateY(0);
+    --transition: transform 0.5s 0.7s;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .modal__container {
+    position: relative;
+    margin: auto;
+    width: 90%;
+    max-width: 600px;
+    max-height: 100vh;
+    border-radius: 0.6rem;
+    padding: 1rem;
+    transform: var(--transform);
+    transition: var(--transition);
+  }
+
+  @media (min-width: 768px) {
+    .modal__container {
+      padding: 2rem;
+    }
+  }
+</style>
+
+<script>
+  import { init, sendForm } from "@emailjs/browser";
+
+  const form = document.getElementById("form-contact") as HTMLFormElement;
+  const modal = document.querySelector(".modal") as HTMLElement;
+
+  const name = document.getElementById("from_name") as HTMLInputElement;
+  const email = document.getElementById("from_email") as HTMLInputElement;
+  const phone = document.getElementById("from_phone") as HTMLInputElement;
+  const message = document.getElementById("message") as HTMLInputElement;
+
+  const messageError = document.getElementById("message-error") as HTMLElement;
+
+  form?.addEventListener("submit", submitForm);
+
+  const serviceID = "service_c9rgflk";
+  const templateID = "template_5gjjlv7";
+  const apikey = "gs2do4_qT3gaXBKKT";
+
+  function submitForm(e: SubmitEvent) {
+    e.preventDefault();
+
+    init({
+      publicKey: apikey,
+    });
+
+    if (!validateForm()) {
+      sendForm(serviceID, templateID, form as HTMLFormElement, apikey)
+        .then((result) => {
+          alert("¡Gracias por contactarme!");
+          modal.classList.remove("modal--show");
+          form.reset();
+        })
+        .catch((error) => alert(error.text));
+    }
+  }
+  function validateForm(): boolean {
+    let hasError = false;
+
+    // Capturar los valores actuales de los campos
+    const fields = {
+      name: name.value.trim(),
+      email: email.value.trim(),
+      phone: phone.value.trim(),
+      message: message.value.trim(),
+    };
+
+    // Validar campos vacíos
+    if (Object.values(fields).includes("")) {
+      messageError.textContent = "Todos los campos son obligatorios";
+      messageError.classList.remove("hidden");
+      hasError = true;
+    }
+
+    // Validar correo
+    const re =
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(fields.email.toLowerCase())) {
+      messageError.textContent = "Ingresa un correo válido";
+      messageError.classList.remove("hidden");
+      hasError = true;
+    }
+
+    // Validar teléfono
+    if (fields.phone.length < 10) {
+      messageError.textContent = "Ingresa un teléfono válido";
+      messageError.classList.remove("hidden");
+      hasError = true;
+    }
+
+    if (hasError) {
+      setTimeout(() => {
+        messageError.textContent = "";
+        messageError.classList.add("hidden");
+      }, 3000);
+    }
+
+    return hasError;
+  }
+</script>
