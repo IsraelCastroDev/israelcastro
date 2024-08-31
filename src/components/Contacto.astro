@@ -1,6 +1,7 @@
 ---
 import Button from "./Button.astro";
 import Typography from "./Typography.astro";
+import ModalContacto from "./ui/ModalContacto.astro";
 ---
 
 <section
@@ -27,8 +28,30 @@ import Typography from "./Typography.astro";
   </div>
 
   <div class="flex flex-col items-center justify-center">
-    <Button className="mt-4 px-10 py-3" href="#">
+    <Button className="btn-modal mt-4 px-10 py-3" href="#">
       Haz click aquí
     </Button>
   </div>
+  <ModalContacto />
 </section>
+
+<script>
+  const btnModal = document.querySelectorAll(
+    ".btn-modal"
+  ) as NodeListOf<HTMLElement>;
+  const btnCloseModal = document.getElementById("closeModalBtn") as HTMLElement;
+  const modal = document.querySelector(".modal") as HTMLElement;
+  const form = document.getElementById("form-contact") as HTMLFormElement;
+
+  btnModal?.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal?.classList.add("modal--show");
+    });
+  });
+
+  btnCloseModal?.addEventListener("click", () => {
+    modal?.classList.remove("modal--show");
+    form?.reset();
+  });
+</script>
