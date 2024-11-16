@@ -10,14 +10,16 @@ const { proyecto } = Astro.props;
 ---
 
 <article class="bg-gray-800 p-3 rounded-xl flex flex-col gap-y-2">
-  <img
-    src={proyecto.img}
-    alt={`Imagen del proyecto ${proyecto.name}`}
-    title={`Imagen del proyecto ${proyecto.name}`}
-    class="w-full block rounded-xl"
-    loading="lazy"
-    decoding="async"
-  />
+  <a href={proyecto.url} target="_blank">
+    <img
+      src={proyecto.img}
+      alt={`Imagen del proyecto ${proyecto.name}`}
+      title={`Imagen del proyecto ${proyecto.name}`}
+      class="w-full block rounded-xl"
+      loading="lazy"
+      decoding="async"
+    />
+  </a>
 
   <div>
     <Typography as="h3" variant="small" color="secondary" class:list={"mt-2"}>
@@ -30,7 +32,7 @@ const { proyecto } = Astro.props;
   </div>
 
   <div class="flex items-center justify-between">
-    <div class="flex items-center gap-2 bg-gray-700 p-2 rounded-xl">
+    <div class="flex gap-1 items-center bg-gray-700 p-2 rounded-xl">
       {
         proyecto.technologies?.map((tech) => (
           <img
@@ -60,7 +62,8 @@ const { proyecto } = Astro.props;
         variant={"text"}
         color="secondary"
         href={proyecto.url}
-        class:list={"mb-0 hover:underline"}>Ir al proyecto</Typography
+        class:list={"mb-0 hover:underline sm:hidden md:block"}
+        >Ir al proyecto</Typography
       >
     </div>
   </div>
