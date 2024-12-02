@@ -8,6 +8,7 @@ export const proyectos: Proyecto[] = [
     img: "/images/bg-flashvideo.webp",
     url: "https://flashvideo.vercel.app/",
     technologies: ["React", "CSS", "TypeScript", "API", "ReactQuery"],
+    github: "https://github.com/IsraelCastroDev/flashvideo",
   },
   {
     name: "Librería virtual",
@@ -16,6 +17,7 @@ export const proyectos: Proyecto[] = [
     img: "/images/libreria-react.webp",
     url: "https://libreria-virtual-react.vercel.app/",
     technologies: ["React", "TailwindCSS"],
+    github: "https://github.com/IsraelCastroDev/libreria-react",
   },
   {
     name: "Tienda de Guitarras",

@@ -48,14 +48,6 @@ const { proyecto } = Astro.props;
     </div>
 
     <div class="flex gap-2 items-center justify-center">
-      <img
-        src="/icons/link.svg"
-        alt="Ir al proyecto"
-        title="Ir al proyecto"
-        class="block"
-        loading="lazy"
-        decoding="async"
-      />
       <Typography
         as="a"
         target={"_blank"}
@@ -63,8 +55,38 @@ const { proyecto } = Astro.props;
         color="secondary"
         href={proyecto.url}
         class:list={"mb-0 hover:underline sm:hidden md:block"}
-        >Ir al proyecto</Typography
       >
+        <img
+          src="/icons/link.svg"
+          alt="Ir al proyecto"
+          title="Ir al proyecto"
+          class="block"
+          loading="lazy"
+          decoding="async"
+        /></Typography
+      >
+
+      {
+        proyecto.github && (
+          <Typography
+            as="a"
+            target={"_blank"}
+            variant={"text"}
+            color="secondary"
+            href={proyecto.url}
+            class:list={"mb-0 hover:underline sm:hidden md:block"}
+          >
+            <img
+              src="/icons/Github.svg"
+              alt="Ir al proyecto"
+              title="Ir al repositorio"
+              class="block h-6 w-6"
+              loading="lazy"
+              decoding="async"
+            />
+          </Typography>
+        )
+      }
     </div>
   </div>
 </article>
