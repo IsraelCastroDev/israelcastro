@@ -9,6 +9,7 @@ export type Proyecto = {
   img: string;
   url: string;
   technologies?: string[];
+  github?: string;
 };
 
 export type Habilidades = {
