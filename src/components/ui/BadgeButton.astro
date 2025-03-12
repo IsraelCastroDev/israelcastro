@@ -5,12 +5,20 @@ interface Props {
   color?: Color;
 }
 
-const { color } = Astro.props;
+const { color = "slate" } = Astro.props;
+
+const colorClasses = {
+  slate:
+    "from-slate-800 to-slate-700 focus:bg-slate-700 hover:bg-slate-700 active:bg-slate-700",
+  sky: "from-sky-800 to-sky-700 focus:bg-sky-700 hover:bg-sky-700 active:bg-sky-700",
+  green:
+    "from-green-800 to-green-700 focus:bg-green-700 hover:bg-green-700 active:bg-green-700",
+};
 ---
 
 <button
   type="button"
-  class={`rounded-full bg-gradient-to-tr from-${color}-800 to-${color}-700 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-${color}-700 focus:shadow-none active:bg-${color}-700 hover:bg-${color}-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-flex items-center gap-x-2`}
+  class={`rounded-full bg-gradient-to-tr py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:shadow-none active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-flex items-center gap-x-2 ${colorClasses[color]}`}
 >
   <slot />
 </button>
