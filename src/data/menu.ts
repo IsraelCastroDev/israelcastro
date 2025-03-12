@@ -2,8 +2,8 @@ import type { MenuItems } from "@/Types";
 
 export const menu: MenuItems[] = [
   {
-    name: "Inicio",
-    href: "#Hero",
+    name: "Experiencia",
+    href: "#Experiencia",
   },
   {
     name: "Proyectos",

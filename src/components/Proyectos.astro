@@ -1,20 +1,17 @@
 ---
+import CodeIcon from "./icons/CodeIcon.astro";
 import ProyectoCard from "./ProyectoCard.astro";
 import Typography from "./Typography.astro";
 import { proyectos } from "@/data/proyectos";
 ---
 
-<section id="Proyectos" class="scroll-mt-24 mt-10 h-auto">
-  <Typography
-    as="h2"
-    variant="title"
-    color="primary"
-    class:list={"text-center mb-7"}
-  >
-    Proyectos
-  </Typography>
+<section id="Proyectos" class="scroll-mt-24 mt-10 h-auto max-w-3xl mx-auto">
+  <div class="flex items-center gap-x-4">
+    <CodeIcon className="h-6 w-6 md:h-10 md:w-10" />
+    <Typography as="h2" variant={"mediun"}> Proyectos desctacados </Typography>
+  </div>
 
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(352px,1fr))] gap-4">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(352px,1fr))] gap-4 mt-10">
     {proyectos.map((proyecto) => <ProyectoCard proyecto={proyecto} />)}
   </div>
 </section>

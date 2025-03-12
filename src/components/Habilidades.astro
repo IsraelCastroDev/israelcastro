@@ -1,22 +1,19 @@
 ---
+import LaptopIcon from "./icons/LaptopIcon.astro";
 import Typography from "./Typography.astro";
 import { habilidades } from "@/data/habilidades";
 ---
 
 <section
   id="Tecnologias"
-  class="scroll-mt-24 h-auto md:h-auto xl:h-[calc(100vh-150px)] my-10 md:my-20 flex flex-col justify-normal md:justify-normal xl:justify-center"
+  class="scroll-mt-24 h-auto md:h-auto xl:h-[calc(100vh-150px)] my-10 md:my-20 flex flex-col justify-normal md:justify-normal xl:justify-center max-w-3xl mx-auto"
 >
-  <Typography
-    as="h2"
-    variant="title"
-    color="primary"
-    class:list={"text-center mb-7"}
-  >
-    Tecnologías
-  </Typography>
+  <div class="flex items-center gap-x-4">
+    <LaptopIcon className="h-7 w-7 md:h-10 md:w-10" />
+    <Typography as="h2" variant={"mediun"}> Tecnologías </Typography>
+  </div>
 
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 mt-10">
     {
       habilidades.map((habilidad) => (
         <div class="flex items-center justify-between gap-y-2 bg-gray-800 p-3 rounded-xl">

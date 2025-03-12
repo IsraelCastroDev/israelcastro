@@ -1,0 +1,16 @@
+---
+type Color = "slate" | "sky" | "green";
+
+interface Props {
+  color?: Color;
+}
+
+const { color } = Astro.props;
+---
+
+<button
+  type="button"
+  class={`rounded-full bg-gradient-to-tr from-${color}-800 to-${color}-700 py-2 px-4 border border-transparent text-center text-sm text-white transition-all shadow-md hover:shadow-lg focus:bg-${color}-700 focus:shadow-none active:bg-${color}-700 hover:bg-${color}-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none inline-flex items-center gap-x-2`}
+>
+  <slot />
+</button>

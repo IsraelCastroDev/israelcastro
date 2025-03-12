@@ -1,12 +1,15 @@
 ---
 import Typography from "./Typography.astro";
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+import BadgeButton from "./ui/BadgeButton.astro";
 ---
 
 <section
   id="Hero"
-  class="scroll-mt-24 flex justify-center items-center flex-col gap-y-5 h-[calc(100vh-80px)]"
+  class="scroll-mt-24 flex justify-center flex-col gap-y-5 h-[calc(100vh-2rem)] max-w-3xl mx-auto"
 >
-  <div class="flex flex-col justify-center items-center gap-y-2 text-center">
+  <div class="flex flex-col justify-center gap-y-2">
     <Typography
       as="h1"
       variant="big"
@@ -16,30 +19,37 @@ import Typography from "./Typography.astro";
       Israel Castro</Typography
     >
     <Typography
-      as="h2"
+      as="p"
       variant="mediun"
       color="gradient"
       class:list={["hero__subtitle text-wrap"]}
     >
-      Desarrollador Frontend Jr.</Typography
-    >
+      1 año de experiencia. Desarrollador web, resido en Perú. Disponible para
+      trabajar.
+    </Typography>
   </div>
-  <div class="flex gap-x-2 md:gap-x-4 items-center justify-center hero__button">
-    <a href="https://www.linkedin.com/in/juan-castro-chozo/" target="_blank">
-      <img
-        src="/icons/Linkedin.svg"
-        alt="Linkedin de Israel Castro"
-        title="Linkedin de Israel Castro"
-        class="w-8 md:w-10"
-      />
+
+  <div class="flex gap-x-2 md:gap-x-4 items-center hero__button mt-3">
+    <a
+      href="https://github.com/IsraelCastroDev"
+      target="_blank"
+      referrerpolicy="no-referrer"
+    >
+      <BadgeButton color="slate">
+        <GithubIcon className="h-6 w-6" />
+        Github
+      </BadgeButton>
     </a>
-    <a href="https://github.com/IsraelCastroDev" target="_blank">
-      <img
-        src="/icons/Github.svg"
-        alt="Github de Israel Castro"
-        class="w-8 md:w-10"
-        title="Github de Israel Castro"
-      />
+
+    <a
+      href="https://www.linkedin.com/in/juan-castro-chozo/"
+      target="_blank"
+      referrerpolicy="no-referrer"
+    >
+      <BadgeButton color="sky">
+        <LinkedinIcon className="h-6 w-6" />
+        Linkedin
+      </BadgeButton>
     </a>
   </div>
 </section>

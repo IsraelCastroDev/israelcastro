@@ -1,24 +1,45 @@
 ---
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
 import Typography from "./Typography.astro";
 
 const currentYear = new Date().getFullYear();
 ---
 
 <footer class="p-3 border-2 border-transparent border-t-gray-500">
-  <Typography
-    as="p"
-    variant="text"
-    color="secondary"
-    class:list={"text-center font-black"}
-  >
-    Hecho con Astro 🚀 por <Typography
-      as="a"
-      href="https://www.linkedin.com/in/juan-castro-chozo/"
-      target="_blank"
+  <div class="flex justify-between items-center max-w-3xl mx-auto">
+    <Typography
+      as="p"
       variant="text"
-      color="primary"
-      class:list={"hover:underline hover:underline-offset-2"}
-      >Israel Castro</Typography
-    >- {currentYear}
-  </Typography>
+      color="secondary"
+      class:list={"text-center font-black"}
+    >
+      Hecho con Astro 🚀 por <Typography
+        as="a"
+        href="https://www.linkedin.com/in/juan-castro-chozo/"
+        target="_blank"
+        variant="text"
+        color="primary"
+        class:list={"hover:underline hover:underline-offset-2"}
+        >Israel Castro</Typography
+      >- {currentYear}
+    </Typography>
+
+    <div class="flex items-center gap-x-3">
+      <a
+        href="https://github.com/IsraelCastroDev"
+        target="_blank"
+        referrerpolicy="no-referrer"
+      >
+        <GithubIcon className="h-6 w-6" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/juan-castro-chozo/"
+        target="_blank"
+        referrerpolicy="no-referrer"
+      >
+        <LinkedinIcon className="h-6 w-6" />
+      </a>
+    </div>
+  </div>
 </footer>

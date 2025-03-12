@@ -1,16 +1,15 @@
 ---
+import UserIcon from "./icons/UserIcon.astro";
 import Typography from "./Typography.astro";
 ---
 
-<section id="SobreMi" class="scroll-mt-24 my-24 md:my-20">
-  <Typography
-    as="h2"
-    variant="title"
-    color="primary"
-    class:list={["text-center mb-7"]}>Sobre mi</Typography
-  >
+<section id="SobreMi" class="scroll-mt-24 my-24 md:my-20 max-w-3xl mx-auto">
+  <div class="flex items-center gap-x-4">
+    <UserIcon className="h-7 w-7 md:h-10 md:w-10" />
+    <Typography as="h2" variant={"mediun"}> Un poco sobre mi </Typography>
+  </div>
 
-  <div class="text-pretty flex md:flex-col xl:flex-row gap-5 xl:gap-6 mt-4">
+  <div class="text-pretty flex md:flex-col xl:flex-row gap-5 xl:gap-6 mt-10">
     <div class="w-full md:w-full xl:w-1/2">
       <Typography as="p" variant="text" color="secondary">
         Hola 😁, mi nombre completo es <Typography
