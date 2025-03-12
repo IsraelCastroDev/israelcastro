@@ -139,7 +139,7 @@ import Typography from "../Typography.astro";
 
     if (!validateForm()) {
       sendForm(serviceID, templateID, form as HTMLFormElement, apikey)
-        .then((result) => {
+        .then(() => {
           alert("¡Gracias por contactarme!");
           modal.classList.remove("modal--show");
           form.reset();
