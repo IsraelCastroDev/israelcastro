@@ -13,17 +13,18 @@ import { habilidades } from "@/data/habilidades";
     <Typography as="h2" variant={"mediun"}> Tecnologías </Typography>
   </div>
 
-  <div class="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-4 mt-10">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-4 mt-10">
     {
       habilidades.map((habilidad) => (
-        <div class="flex items-center justify-between gap-y-2 bg-gray-800 p-3 rounded-xl">
+        <div class="relative group flex items-center justify-between flex-col gap-y-2 bg-gradient-to-br from-gray-800 to-gray-900 p-3 rounded-xl transition-transform transform hover:scale-[1.1] hover:shadow-xl shadow-blue-950/45 overflow-hidden">
+          <div class="absolute inset-0 bg-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300" />
           <img
             src={habilidad.img}
-            alt={`Icono de la teconología ${habilidad.name}`}
+            alt={`Icono de la tecnología ${habilidad.name}`}
             title={`${habilidad.name}`}
             loading="lazy"
             decoding="async"
-            class="w-10 h-10"
+            class="w-10 h-10 drop-shadow-lg group-hover:scale-110 transition-transform duration-300"
           />
 
           <Typography as="h3" variant="small" color="secondary">

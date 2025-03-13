@@ -3,68 +3,74 @@ import Typography from "../Typography.astro";
 ---
 
 <section class="modal">
-  <div class="modal__container bg-slate-700">
-    <Typography as="h2" variant="mediun" color="primary" class="text-center"
-      >¡Te invito a ponerte en contacto conmigo!</Typography
+  <div
+    class="modal__container bg-gradient-to-br bg-gray-900 shadow-blue-700/45 border border-blue-500/50 rounded-2xl p-6 relative animate-fadeIn"
+  >
+    <Typography
+      as="h2"
+      variant="mediun"
+      color="primary"
+      class="text-center text-white text-2xl font-bold"
     >
+      ¡Te invito a ponerte en contacto conmigo!
+    </Typography>
     <p
       id="message-error"
       class="border border-red-500 text-red-200 text-center hidden"
     >
     </p>
-    <form class="space-y-4" id="form-contact">
-      <div class="flex flex-col">
-        <label for="from_name">Nombre:</label>
+    <form class="space-y-4 mt-4" id="form-contact">
+      <div class="flex flex-col gap-2">
+        <label for="from_name" class="text-gray-300">Nombre:</label>
         <input
           type="text"
-          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          class="bg-gray-700 placeholder:text-gray-400 p-2 rounded-md text-white focus:ring-2 focus:ring-blue-500"
           placeholder="Por ej. Juan Perez"
           name="from_name"
           id="from_name"
         />
       </div>
-      <div class="flex flex-col">
-        <label for="from_email">Tu Email:</label>
+      <div class="flex flex-col gap-2">
+        <label for="from_email" class="text-gray-300">Tu Email:</label>
         <input
           type="text"
-          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          class="bg-gray-700 placeholder:text-gray-400 p-2 rounded-md text-white focus:ring-2 focus:ring-blue-500"
           placeholder="Por ej. 0t9zj@example.com"
           name="from_email"
           id="from_email"
         />
       </div>
-      <div class="flex flex-col">
-        <label for="from_phone">Tu Teléfono:</label>
+      <div class="flex flex-col gap-2">
+        <label for="from_phone" class="text-gray-300">Tu Teléfono:</label>
         <input
           type="tel"
-          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          class="bg-gray-700 placeholder:text-gray-400 p-2 rounded-md text-white focus:ring-2 focus:ring-blue-500"
           placeholder="Por ej. +56912345678"
           name="from_phone"
           id="from_phone"
         />
-        <legend class="text-sm mt-1 text-gray-300"
+        <legend class="text-sm mt-1 text-gray-400"
           >Agrega tu código de país*</legend
         >
       </div>
-      <div class="flex flex-col">
-        <label for="message">Mensaje:</label>
+      <div class="flex flex-col gap-2">
+        <label for="message" class="text-gray-300">Mensaje:</label>
         <textarea
-          class="placeholder:text-slate-700 placeholder:text-sm p-2 rounded-md text-slate-900 form__input"
+          class="bg-gray-700 placeholder:text-gray-400 p-2 rounded-md text-white focus:ring-2 focus:ring-blue-500"
           placeholder="Por ej. Hola, me interesa..."
           name="message"
           id="message"></textarea>
       </div>
-
       <div class="flex justify-center">
         <input
           type="submit"
           value="Enviar"
-          class="bg-slate-900 form__input text-white py-1 w-full cursor-pointer"
+          class="bg-blue-600 hover:bg-blue-500 text-white py-2 px-4 rounded-md cursor-pointer transition"
         />
       </div>
     </form>
     <button
-      class="absolute top-2 right-2 bg-slate-900 form__input text-white w-10 h-10 rounded-full"
+      class="absolute top-2 right-2 bg-red-500 hover:bg-red-400 text-white w-10 h-10 rounded-full transition"
       id="closeModalBtn">X</button
     >
   </div>
@@ -80,6 +86,7 @@ import Typography from "../Typography.astro";
     display: flex;
     pointer-events: none;
     opacity: 0;
+    z-index: 100;
     transition: opacity 0.6s 0.9s;
     --transform: translateY(-100vh);
     --transition: transform 0.8s;
