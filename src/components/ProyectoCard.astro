@@ -10,7 +10,7 @@ const { proyecto } = Astro.props;
 ---
 
 <article
-  class="bg-gray-900 p-4 rounded-2xl flex flex-col gap-y-3 transition-transform transform hover:scale-[1.03] hover:shadow-lg shadow-blue-500/20 group overflow-hidden relative"
+  class="bg-transparent border border-slate-700 p-4 rounded-2xl flex flex-col gap-y-3 transition-transform transform hover:scale-[1.03] hover:shadow-lg shadow-blue-500/20 group overflow-hidden relative"
 >
   <a
     href={proyecto.url}
@@ -36,7 +36,7 @@ const { proyecto } = Astro.props;
     </div>
   </a>
 
-  <div class="px-2">
+  <div class="px-2 space-y-2">
     <Typography
       as="h3"
       variant="small"
@@ -50,7 +50,7 @@ const { proyecto } = Astro.props;
       as="p"
       variant="text"
       color="secondary"
-      class:list="text-gray-400 text-sm"
+      class:list="text-gray-200 text-sm"
     >
       {proyecto.description}
     </Typography>
