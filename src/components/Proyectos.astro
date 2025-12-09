@@ -11,7 +11,7 @@ import { proyectos, proyectosFreelance } from "@/data/proyectos";
     <Typography as="h2" variant={"mediun"}> Proyectos (Freelance) </Typography>
   </div>
 
-  <div class="grid grid-cols-2 gap-4 mt-10">
+  <div class="grid grid-cols-[repeat(auto-fit,minmax(352px,1fr))] gap-4 mt-10">
     {proyectosFreelance.map((proyecto) => <ProyectoCard proyecto={proyecto} />)}
   </div>
 </section>
