@@ -2,7 +2,7 @@
 import "@fontsource-variable/fira-code";
 
 interface Props {
-    title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -10,69 +10,66 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8" />
-        <meta property="og:image" content="/logo.png" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta
-            name="description"
-            content="Portfolio web de Israel Castro, Desarrollador web"
-        />
-        <!-- Facebook Meta Tags -->
-        <meta property="og:url" content="https://israelcastro.vercel.app" />
-        <meta property="og:type" content="website" />
-        <meta property="og:title" content="Israel Castro | Portfolio" />
-        <meta
-            property="og:description"
-            content="Portfolio web de Israel Castro, Desarrollador web"
-        />
-        <meta
-            property="og:image"
-            content="https://israelcastro.vercel.app/logo.png"
-        />
+  <head>
+    <meta charset="UTF-8" />
+    <meta property="og:image" content="/logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      name="description"
+      content="Portfolio web de Israel Castro, Desarrollador web"
+    />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://israelcastro.vercel.app" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Israel Castro | Portfolio" />
+    <meta
+      property="og:description"
+      content="Portfolio web de Israel Castro, Desarrollador web"
+    />
+    <meta
+      property="og:image"
+      content="https://israelcastro.vercel.app/logo.png"
+    />
 
-        <!-- Twitter Meta Tags -->
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta property="twitter:domain" content="israelcastro.vercel.app" />
-        <meta
-            property="twitter:url"
-            content="https://israelcastro.vercel.app"
-        />
-        <meta name="twitter:title" content="Israel Castro | Portfolio" />
-        <meta
-            name="twitter:description"
-            content="Portfolio web de Israel Castro, Desarrollador web"
-        />
-        <meta
-            name="twitter:image"
-            content="https://israelcastro.vercel.app/logo.png"
-        />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:domain" content="israelcastro.vercel.app" />
+    <meta property="twitter:url" content="https://israelcastro.vercel.app" />
+    <meta name="twitter:title" content="Israel Castro | Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Portfolio web de Israel Castro, Desarrollador web"
+    />
+    <meta
+      name="twitter:image"
+      content="https://israelcastro.vercel.app/logo.png"
+    />
 
-        <meta name="viewport" content="width=device-width" />
-        <link rel="icon" type="image/svg+xml" href="/logo.png" />
-        <meta name="generator" content={Astro.generator} />
-        <title>{title}</title>
-    </head>
-    <body>
-        <slot />
-    </body>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="overflow-x-hidden">
+    <slot />
+  </body>
 </html>
 
 <style is:global>
-    html {
-        font-family: "Fira Code Variable", monospace;
-        scroll-behavior: smooth;
-        scrollbar-color: #e0e0e0 #040b12;
-    }
+  html {
+    font-family: "Fira Code Variable", monospace;
+    scroll-behavior: smooth;
+    scrollbar-color: #e0e0e0 #040b12;
+  }
 
-    *::selection {
-        background-color: #00234b;
-        color: #fff;
-    }
+  *::selection {
+    background-color: #00234b;
+    color: #fff;
+  }
 
-    body {
-        background-color: #040b12;
-        color: #fff;
-    }
+  body {
+    background-color: #040b12;
+    color: #fff;
+  }
 </style>

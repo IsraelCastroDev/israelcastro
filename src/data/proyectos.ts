@@ -29,6 +29,16 @@ export const proyectos: Proyecto[] = [
   },
 ];
 
+export const proyectosFreelance: Proyecto[] = [
+  {
+    img: "/images/hnstreaming.png",
+    description: "Diseñé y desarrollé una plataforma moderna para la venta de servicios digitales, optimizada con una interfaz clara, responsiva y orientada a la experiencia del usuario.",
+    name: "HNStreaming",
+    url: "https://streaminghnlq.com/",
+    technologies: ["React", "TailwindCSS", "NodeJS", "API", "ReactQuery"],
+  }
+]
+
 /*
 
   {
